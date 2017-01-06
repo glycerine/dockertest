@@ -144,7 +144,7 @@ func TestConnectToMongoDB(t *testing.T) {
 }
 
 func TestConnectToElasticSearch(t *testing.T) {
-	c, err := ConnectToElasticSearch(15, time.Millisecond*500, func(url string) bool {
+	c, err := ConnectToElasticSearch("elasticsearch:5.1.1", 90, 2*time.Second, func(url string) bool {
 		segs := strings.Split(url, ":")
 		if len(segs) != 2 {
 			return false
